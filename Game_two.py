@@ -15,12 +15,12 @@ class GameTwo(Engine):
                 if not self.validation():
                     break
                 self.max_num = self.guess - 1
-                self.guess = self.generate_random_number(self.min_num, self.max_num)
+                self.guess = self.min_num + (self.max_num - self.min_num) // 2
             elif self.user_input == ">":
                 if not self.validation():
                     break
                 self.min_num = self.guess + 1
-                self.guess = self.generate_random_number(self.min_num, self.max_num)
+                self.guess = self.min_num + (self.max_num - self.min_num) // 2
             elif self.user_input == "=":
                 print(f"Было легко, твоё число: {self.guess}")
                 break

@@ -1,21 +1,7 @@
-import random
+from Engine import Engine
 
-class Game:
-    def __init__(self, min_num, max_num):
-        self.min_num = min_num
-        self.max_num = max_num
-        self.secret_number = random.randint(min_num, max_num)
-        self.num_attempts = 0
 
-    def user_guess(self):
-        while True:
-            try:
-                guess = int(input("Твоё число - "))
-                if guess < self.min_num or guess > self.max_num:
-                    raise ValueError
-                return guess
-            except ValueError:
-                print("Фигню вводишь, давай нормально")
+class GameOne(Engine):
 
     def play(self):
         print(f"Загадано число от {self.min_num} до {self.max_num}, пробуй угадать (перебором вообще кайф)")
@@ -32,5 +18,6 @@ class Game:
                 print(f"Поразительно, ты угадал число {self.secret_number} всего за {self.num_attempts} попыток")
                 break
 
-game = Game(1, 100)
+
+game = GameOne(1, 10)
 game.play()

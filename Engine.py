@@ -8,8 +8,9 @@ class Engine:
         self.max_num = max_num
         self.secret_number = randint(min_num, max_num)
         self.num_attempts = 0
-        self.guess = self.generate_random_number(1, 10)
+        self.guess = randint(1, 10)
 
+# Game_one
     def user_guess(self):
         while True:
             try:
@@ -20,13 +21,11 @@ class Engine:
             except ValueError:
                 print("Фигню вводишь, давай нормально")
 
-    def generate_random_number(self, min_num, max_num):
-        return randint(min_num, max_num)
+# Game_two
 
     def validation(self):
-        if self.user_input != '=' and self.min_num != self.max_num:
+        if self.min_num != self.max_num:
             if 1 <= self.max_num - 1 <= 10 and 1 <= self.min_num + 1 <= 10:
                 return True
         else:
-            print("Да уж, друг.. Классное число ты выбрал")
             return False
